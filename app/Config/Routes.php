@@ -12,4 +12,4 @@ $routes->get('/about', [UserController::class,'about']);
 $routes->get('/service', [UserController::class,'service']);
 $routes->get('/team', [UserController::class,'doctor']);
 $routes->get('/appointment', [UserController::class,'appointment']);
-
+$routes->get('/signin', 'LoginController::Login');
