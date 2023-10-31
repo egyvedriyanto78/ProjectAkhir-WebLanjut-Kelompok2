@@ -13,3 +13,5 @@ $routes->get('/service', [UserController::class,'service']);
 $routes->get('/team', [UserController::class,'doctor']);
 $routes->get('/appointment', [UserController::class,'appointment']);
 
+$routes->get('/register', 'SignupController::signUp');
+
