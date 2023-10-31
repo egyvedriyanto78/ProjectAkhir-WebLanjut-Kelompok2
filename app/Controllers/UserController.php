@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class UserController extends BaseController
 {
     public function index(): string
     {
@@ -15,5 +15,13 @@ class Home extends BaseController
     public function service(): string
     {
         return view('service');
+    }
+    public function doctor(): string
+    {
+        return view('team');
+    }
+    public function appointment()
+    {
+        return view ('appointment');
     }
 }
