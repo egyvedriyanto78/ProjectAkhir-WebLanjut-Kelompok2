@@ -3,6 +3,7 @@
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\UserController;
 use App\Controllers\AdminController;
+use App\Controllers\ApotekerController;
 /**
  * @var RouteCollection $routes
  */
@@ -22,4 +23,7 @@ $routes->get('/signin', 'LoginController::Login');
 
 $routes->get('/register', 'SignupController::signUp');
 
-
+// Apoteker Controller
+$routes->get('/apoteker/dashboard', [ApotekerController::class, 'index']);
+$routes->get('/apoteker/resep', [ApotekerController::class, 'resep']);
+$routes->get('/apoteker/stok', [ApotekerController::class, 'stok']);
