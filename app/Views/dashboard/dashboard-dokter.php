@@ -86,7 +86,7 @@
                         <i class="bi bi-info-circle text-primary"></i>
                         <div>
                             <h4>Dicta reprehenderit</h4>
-                            <p>Quae dolorem earum veritatis oditseno</p>
+                            <p>Quae dolorm earum veritatis oditseno</p>
                             <p>4 hrs. ago</p>
                         </div>
                     </li>
