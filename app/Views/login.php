@@ -6,10 +6,10 @@
     <div class="card">
         <div class="card_title">
             <h1>Login</h1>
-            <span>Don't have an account? <a href="login">Sign Up</a></span>
+            <span>Don't have an account? <a href="<?= base_url('register') ?>">Sign Up</a></span>
         </div>
         <div class="form">
-            <form action="/register" method="post">
+            <form action="#" method="post">
                 <!-- <input type="text" name="username" id="username" placeholder="UserName" /> -->
                 <input type="email" name="email" placeholder="Email" id="email" class="input" />
                 <input type="password" name="password" placeholder="Password" id="password" class="input" />

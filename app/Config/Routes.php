@@ -17,6 +17,7 @@ $routes->get('/appointment', [UserController::class,'appointment']);
 
 //Admin Routes
 $routes->get('/adm', [AdminController::class, 'index']);
+$routes->get('/adm/dokter', [AdminController::class, 'dokter']);
 
 $routes->get('/signin', 'LoginController::Login');
 

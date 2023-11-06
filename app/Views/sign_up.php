@@ -14,7 +14,7 @@
     <div class="card">
       <div class="card_title">
         <h1>Create Account</h1>
-        <span>Already have an account? <a href="login">Sign In</a></span>
+        <span>Already have an account? <a href="<?= base_url('signin') ?>">Sign In</a></span>
       </div>
       <div class="form">
       <form action="/register" method="post">
