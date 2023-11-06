@@ -27,7 +27,7 @@
                         <span class="hide-menu">Utama</span>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                        <a class="sidebar-link" href="<?= base_url('adm') ?>" aria-expanded="false">
                             <span>
                                 <iconify-icon icon="material-symbols:dashboard-outline" width="20"
                                     height="20"></iconify-icon>
@@ -48,7 +48,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+                        <a class="sidebar-link" href="<?= base_url('adm/dokter') ?>" aria-expanded="false">
                             <span>
                                 <iconify-icon icon="healthicons:doctor-male" width="20" height="20"></iconify-icon>
                             </span>
@@ -132,7 +132,7 @@
                                         <i class="ti ti-list-check fs-6"></i>
                                         <p class="mb-0 fs-3">My Task</p>
                                     </a>
-                                    <a href="./authentication-login.html"
+                                    <a href="<?= base_url('') ?>"
                                         class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                 </div>
                             </div>
@@ -426,132 +426,51 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-xl-3">
-                    <div class="card overflow-hidden rounded-2">
-                        <div class="position-relative">
-                            <a href="javascript:void(0)"><img src="../admin/images/products/s4.jpg"
-                                    class="card-img-top rounded-0" alt="..."></a>
-                            <a href="javascript:void(0)"
-                                class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                                    class="ti ti-basket fs-4"></i></a>
+
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="<?= base_url("admin/images/dasbor/AloneDoc.jpeg") ?>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
                         </div>
-                        <div class="card-body pt-3 p-4">
-                            <h6 class="fw-semibold fs-4">Boat Headphone</h6>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h6 class="fw-semibold fs-4 mb-0">$50 <span
-                                        class="ms-2 fw-normal text-muted fs-3"><del>$65</del></span></h6>
-                                <ul class="list-unstyled d-flex align-items-center mb-0">
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2000">
+                        <img src="<?= base_url("admin/images/dasbor/Operate.jpeg") ?>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="<?= base_url("admin/images/dasbor/Transplant.jpeg") ?>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="card overflow-hidden rounded-2">
-                        <div class="position-relative">
-                            <a href="javascript:void(0)"><img src="../admin/images/products/s5.jpg"
-                                    class="card-img-top rounded-0" alt="..."></a>
-                            <a href="javascript:void(0)"
-                                class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                                    class="ti ti-basket fs-4"></i></a>
-                        </div>
-                        <div class="card-body pt-3 p-4">
-                            <h6 class="fw-semibold fs-4">MacBook Air Pro</h6>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h6 class="fw-semibold fs-4 mb-0">$650 <span
-                                        class="ms-2 fw-normal text-muted fs-3"><del>$900</del></span></h6>
-                                <ul class="list-unstyled d-flex align-items-center mb-0">
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="card overflow-hidden rounded-2">
-                        <div class="position-relative">
-                            <a href="javascript:void(0)"><img src="../admin/images/products/s7.jpg"
-                                    class="card-img-top rounded-0" alt="..."></a>
-                            <a href="javascript:void(0)"
-                                class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                                    class="ti ti-basket fs-4"></i></a>
-                        </div>
-                        <div class="card-body pt-3 p-4">
-                            <h6 class="fw-semibold fs-4">Red Valvet Dress</h6>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h6 class="fw-semibold fs-4 mb-0">$150 <span
-                                        class="ms-2 fw-normal text-muted fs-3"><del>$200</del></span></h6>
-                                <ul class="list-unstyled d-flex align-items-center mb-0">
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-3">
-                    <div class="card overflow-hidden rounded-2">
-                        <div class="position-relative">
-                            <a href="javascript:void(0)"><img src="../admin/images/products/s11.jpg"
-                                    class="card-img-top rounded-0" alt="..."></a>
-                            <a href="javascript:void(0)"
-                                class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
-                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                                    class="ti ti-basket fs-4"></i></a>
-                        </div>
-                        <div class="card-body pt-3 p-4">
-                            <h6 class="fw-semibold fs-4">Cute Soft Teddybear</h6>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h6 class="fw-semibold fs-4 mb-0">$285 <span
-                                        class="ms-2 fw-normal text-muted fs-3"><del>$345</del></span></h6>
-                                <ul class="list-unstyled d-flex align-items-center mb-0">
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="me-1" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                    <li><a class="" href="javascript:void(0)"><i
-                                                class="ti ti-star text-warning"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
+
             <div class="py-6 px-6 text-center">
                 <p class="mb-0 fs-4">Design and Developed by <span style="color: #2979ff;">Klinik</span> Unila</p>
             </div>
