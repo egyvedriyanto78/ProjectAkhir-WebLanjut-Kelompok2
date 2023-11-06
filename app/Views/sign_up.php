@@ -3,6 +3,7 @@
   <div class="container">
     <div class="card">
       <div class="card_title">
+      
         <h1>Buat Akun</h1>        
         <span class="subtitle">Sudah memiliki akun? <a href="login">Masuk</a></span>        
       </div>      

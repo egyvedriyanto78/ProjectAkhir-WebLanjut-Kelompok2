@@ -13,4 +13,12 @@ class AdminController extends BaseController
         ];
         return view('admin_dashboard', $data);
     }
+
+    public function dokter()
+    {
+        $data = [
+            'title' => 'ADMIN | Dokter'
+        ];
+        return view('admin_dokter', $data);
+    }
 }
