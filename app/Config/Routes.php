@@ -3,8 +3,10 @@
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\UserController;
 use App\Controllers\AdminController;
+use App\Controllers\ApotekerController;
 use App\Controllers\LoginController;
 use App\Controllers\SignupController;
+
 /**
  * @var RouteCollection $routes
  */
@@ -29,4 +31,7 @@ $routes->get('/register', [SignupController::class, 'signUp']);
 $routes->post('/register/store', [SignupController::class, 'store']);
 
 
-
+// Apoteker Controller
+$routes->get('/apoteker/dashboard', [ApotekerController::class, 'index']);
+$routes->get('/apoteker/resep', [ApotekerController::class, 'resep']);
+$routes->get('/apoteker/stok', [ApotekerController::class, 'stok']);
