@@ -3,6 +3,8 @@
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\UserController;
 use App\Controllers\AdminController;
+use App\Controllers\LoginController;
+use App\Controllers\SignupController;
 /**
  * @var RouteCollection $routes
  */
@@ -18,8 +20,13 @@ $routes->get('/appointment', [UserController::class,'appointment']);
 //Admin Routes
 $routes->get('/adm', [AdminController::class, 'index']);
 
-$routes->get('/signin', 'LoginController::Login');
+//login routes
+$routes->get('/signin', [LoginController::class, 'Login']);
+$routes->post('/signin/store', [LoginController::class, 'store']);
 
-$routes->get('/register', 'SignupController::signUp');
+//register routes
+$routes->get('/register', [SignupController::class, 'signUp']);
+$routes->post('/register/store', [SignupController::class, 'store']);
+
 
 
