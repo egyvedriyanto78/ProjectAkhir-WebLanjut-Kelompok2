@@ -44,4 +44,5 @@ $routes->post('/register/store', [SignupController::class, 'store']);
 $routes->get('/apoteker/dashboard', [ApotekerController::class, 'index']);
 $routes->get('/apoteker/resep', [ApotekerController::class, 'resep']);
 $routes->get('/apoteker/stok', [ApotekerController::class, 'stok']);
-
+$routes->get('/apoteker/create_stok', [ApotekerController::class, 'create_stok']);
+$routes->post('/apoteker/store_stok', [ApotekerController::class, 'store_stok']);
