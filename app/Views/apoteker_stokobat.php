@@ -8,7 +8,10 @@
           <div class="col-lg-8 d-flex align-items-stretch">
             <div class="card w-100">
               <div class="card-body p-4">
-                <h5 class="card-title fw-semibold mb-4">Stok Obat</h5>
+                <div style="margin-bottom:20px ;">
+                  <a href="<?= base_url('/apoteker/create_stok') ?>" class="btn btn-info">Tambah</a>
+                </div>
+                  <h5 class="card-title fw-semibold mb-4">Stok Obat</h5>
                 <div class="table-responsive">
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
@@ -25,15 +28,17 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php $no=1; foreach($stoks as $stok){ ?>
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><?= $no++ ?></h6></td>
                         <td class="border-bottom-0">
-                            <span class="fw-normal">Promaag</span>                          
+                            <span class="fw-normal"><?= $stok['nama']?></span>                          
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">10</p>
+                          <p class="mb-0 fw-normal"><?= $stok['stok']?></p>
                         </td>
-                      </tr>                       
+                      </tr>
+                    <?php } ?>                    
                     </tbody>
                   </table>
                 </div>
