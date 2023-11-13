@@ -5,7 +5,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="/dokter" class="logo d-flex align-items-center">
-            <img src="dashboard/assets/img/logo.png" alt="">
+            <img src="dashboard/img/logo.png" alt="">
             <span class="d-none d-lg-block">Dokter</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -120,7 +120,7 @@
 
                     <li class="message-item">
                         <a href="#">
-                            <img src="dashboard/assets/img/messages-1.jpg" alt="" class="rounded-circle">
+                            <img src="dashboard/img/messages-1.jpg" alt="" class="rounded-circle">
                             <div>
                                 <h4>Maria Hudson</h4>
                                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -134,7 +134,7 @@
 
                     <li class="message-item">
                         <a href="#">
-                            <img src="dashboard/assets/img/messages-2.jpg" alt="" class="rounded-circle">
+                            <img src="dashboard/img/messages-2.jpg" alt="" class="rounded-circle">
                             <div>
                                 <h4>Anna Nelson</h4>
                                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -148,7 +148,7 @@
 
                     <li class="message-item">
                         <a href="#">
-                            <img src="dashboard/assets/img/messages-3.jpg" alt="" class="rounded-circle">
+                            <img src="dashboard/img/messages-3.jpg" alt="" class="rounded-circle">
                             <div>
                                 <h4>David Muldon</h4>
                                 <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
@@ -171,9 +171,9 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="dashboard/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+                    <img src=<?php echo base_url('dashboard/img/team-2.jpg')?> alt="Profile" class="rounded-circle">
                     <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
-                </a><!-- End Profile Iamge Icon -->
+                </a><!-- End Profile Image Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li class="dropdown-header">
@@ -185,7 +185,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        <a class="dropdown-item d-flex align-items-center" href="/dokter/profile">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>
@@ -195,7 +195,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        <a class="dropdown-item d-flex align-items-center" href="/dokter/profile">
                             <i class="bi bi-gear"></i>
                             <span>Account Settings</span>
                         </a>
@@ -248,8 +248,8 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="forms-elements.html">
-                        <i class="bi bi-circle"></i><span>Form Elements</span>
+                    <a href="/dokter/form-pasien">
+                        <i class="bi bi-circle"></i><span>Form Data Diri Pasien</span>
                     </a>
                 </li>
                 <li>
@@ -295,7 +295,7 @@
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
+            <a class="nav-link collapsed" href="/dokter/profile">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>
@@ -660,7 +660,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row"><a href="#"><img src="dashboard/assets/img/product-1.jpg"
+                                            <th scope="row"><a href="#"><img src="dashboard/img/product-1.jpg"
                                                         alt=""></a></th>
                                             <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas
                                                     nulla</a></td>
@@ -669,7 +669,7 @@
                                             <td>$5,828</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><a href="#"><img src="dashboard/assets/img/product-2.jpg"
+                                            <th scope="row"><a href="#"><img src="dashboard/img/product-2.jpg"
                                                         alt=""></a></th>
                                             <td><a href="#" class="text-primary fw-bold">Exercitationem similique
                                                     doloremque</a></td>
@@ -678,7 +678,7 @@
                                             <td>$4,508</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><a href="#"><img src="dashboard/assets/img/product-3.jpg"
+                                            <th scope="row"><a href="#"><img src="dashboard/img/product-3.jpg"
                                                         alt=""></a></th>
                                             <td><a href="#" class="text-primary fw-bold">Doloribus nisi
                                                     exercitationem</a></td>
@@ -687,7 +687,7 @@
                                             <td>$4,366</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><a href="#"><img src="dashboard/assets/img/product-4.jpg"
+                                            <th scope="row"><a href="#"><img src="dashboard/img/product-4.jpg"
                                                         alt=""></a></th>
                                             <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum
                                                     error</a></td>
@@ -696,7 +696,7 @@
                                             <td>$2,016</td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><a href="#"><img src="dashboard/assets/img/product-5.jpg"
+                                            <th scope="row"><a href="#"><img src="dashboard/img/product-5.jpg"
                                                         alt=""></a></th>
                                             <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus
                                                     repellendus</a></td>
@@ -970,34 +970,34 @@
 
                         <div class="news">
                             <div class="post-item clearfix">
-                                <img src="dashboard/assets/img/news-1.jpg" alt="">
+                                <img src="dashboard/img/news-1.jpg" alt="">
                                 <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
                                 <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
                             </div>
 
                             <div class="post-item clearfix">
-                                <img src="dashboard/assets/img/news-2.jpg" alt="">
+                                <img src="dashboard/img/news-2.jpg" alt="">
                                 <h4><a href="#">Quidem autem et impedit</a></h4>
                                 <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...
                                 </p>
                             </div>
 
                             <div class="post-item clearfix">
-                                <img src="dashboard/assets/img/news-3.jpg" alt="">
+                                <img src="dashboard/img/news-3.jpg" alt="">
                                 <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
                                 <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...
                                 </p>
                             </div>
 
                             <div class="post-item clearfix">
-                                <img src="dashboard/assets/img/news-4.jpg" alt="">
+                                <img src="dashboard/img/news-4.jpg" alt="">
                                 <h4><a href="#">Laborum corporis quo dara net para</a></h4>
                                 <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...
                                 </p>
                             </div>
 
                             <div class="post-item clearfix">
-                                <img src="dashboard/assets/img/news-5.jpg" alt="">
+                                <img src="dashboard/img/news-5.jpg" alt="">
                                 <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
                                 <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos
                                     eius...</p>

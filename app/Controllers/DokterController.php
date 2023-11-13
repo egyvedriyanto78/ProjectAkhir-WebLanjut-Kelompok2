@@ -21,4 +21,12 @@ class DokterController extends BaseController
     public function tableObat(){
         return view ('dashboard/table-obat');
     }
+
+    public function profile(){
+        return view ('dashboard/profile');
+    }
+    
+    public function showForm(){
+        return view ('dashboard/form-pasien');
+    }
 }
