@@ -19,6 +19,9 @@ $routes->get('/dokter', [DokterController::class,'show']);
 $routes->get('/dokter/pasien', [DokterController::class,'tablePasien']);
 $routes->get('/dokter/obat', [DokterController::class,'tableObat']);
 $routes->get('/dokter', [DokterController::class, 'dashboard']);
+$routes->get('/dokter/profile', [DokterController::class, 'profile']);
+$routes->get('/dokter/form-pasien', [DokterController::class, 'showForm']);
+
 
 //Admin Routes
 $routes->get('/adm', [AdminController::class, 'index']);
