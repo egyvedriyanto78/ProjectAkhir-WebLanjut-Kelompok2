@@ -31,8 +31,17 @@ $routes->get('/dokter/form-pasien', [DokterController::class, 'showForm']);
 
 
 //Admin Routes
+// $routes->get('/adm', [AdminController::class, 'index']);
+// $routes->get('/adm/dokter', [AdminController::class, 'dokter']);
 $routes->get('/adm', [AdminController::class, 'index'], ['filter' =>'role:admin']);
 $routes->get('/adm/dokter', [AdminController::class, 'dokter'], ['filter' =>'role:admin']);
+$routes->get('/adm/pasien', [AdminController::class, 'pasien']);
+$routes->get('/adm/apoteker', [AdminController::class, 'apoteker']);
+$routes->get('/adm/tentang', [AdminController::class, 'tentang']);
+$routes->get('/adm/galeri', [AdminController::class, 'galeri']);
+$routes->get('/adm/profil', [AdminController::class, 'profil']);
+$routes->get('/adm/akun', [AdminController::class, 'akun']);
+
 
 //login routes
 $routes->get('/signin', [LoginController::class, 'Login']);
