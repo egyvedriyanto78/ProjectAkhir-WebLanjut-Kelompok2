@@ -4,29 +4,50 @@
 <div class="container">
     <div class="card">
         <div class="card_title">
-            <h1>Masuk</h1>
-            <span>Don't have an account? <a href="register">Buat Akun</a></span>
+            <h1><?=lang('Auth.loginTitle')?></h1>
+            <?php if ($config->allowRegistration) : ?>
+                <span>Don't have an account? <a href="<?= url_to('register') ?>">Register</a></span>				
+            <?php endif; ?>            
         </div>
-        <div class="form">
-            <form action="<?php echo base_url('/signin/store')?>" method="post" enctype="multipart/form-data"> 
-            <div>
-                <label for="username">Nama Pengguna</label>
-                <input type="text" name="username" placeholder="Nama Pengguna" id="username" class="form-input" value="<?= session()->getFlashdata('username') ?>">
-                
-            </div> 
-            <div>
-                <label for="password">Kata Sandi</label>
-                <input type="password" name="password" placeholder="Kata Sandi" id="password" class="form-input">
-                
-            </div>
-            <?php if (session()->getFlashdata('error')){ ?>
-                <div class="alert alert-danger">
-                    <?php echo session()->getFlashdata('error'); ?>                    
-                </div>
-            <?php } ?>
 
-            <input type="submit" name="login" class="form-button" value="LOGIN"/>
-                <!-- <button class="form-button" name="login">Masuk</button> -->
+        <?= view('Myth\Auth\Views\_message_block') ?>
+
+        <div class="form">
+            <form action="<?= url_to('login') ?>" method="post"> 
+                <?= csrf_field() ?>
+            
+<?php if ($config->validFields === ['email']): ?>
+            <div>
+                <label for="login"><?=lang('Auth.email')?></label>
+                <input type="email" name="login" placeholder="<?=lang('Auth.email')?>" class="form-input 
+                <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>">                
+                <div class="invalid-feedback">
+					<?= session('errors.login') ?>
+				</div>
+            </div> 
+<?php else: ?>
+            <div>
+                <label for="login"><?=lang('Auth.emailOrUsername')?></label>
+                <input type="text" name="login" placeholder="<?=lang('Auth.emailOrUsername')?>" class="form-input
+                <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>">                
+                <div class="invalid-feedback">
+    				<?= session('errors.login') ?>
+				</div>
+            </div>
+<?php endif; ?>
+
+            <div>
+                <label for="password"><?=lang('Auth.password')?></label>
+                <input type="password" name="password" placeholder="<?=lang('Auth.password')?>" class="form-input
+                <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>">
+                <div class="invalid-feedback">
+					<?= session('errors.password') ?>
+				</div>
+            </div>
+         
+
+            <button type="submit" class="form-button"><?=lang('Auth.loginAction')?></button>
+            
             </form>
         </div>        
     </div>
