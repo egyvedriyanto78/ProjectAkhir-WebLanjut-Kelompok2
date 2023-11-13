@@ -21,6 +21,7 @@ $routes->get('/service', [UserController::class,'service']);
 $routes->get('/team', [UserController::class,'doctor']);
 $routes->get('/appointment', [UserController::class,'appointment']);
 
+//dokter controller
 $routes->get('/dokter', [DokterController::class,'show']);
 $routes->get('/dokter/pasien', [DokterController::class,'tablePasien']);
 $routes->get('/dokter/obat', [DokterController::class,'tableObat']);
@@ -45,6 +46,9 @@ $routes->post('/register/store', [SignupController::class, 'store']);
 $routes->get('/apoteker/dashboard', [ApotekerController::class, 'index'], ['filter' =>'role:apoteker, admin']);
 $routes->get('/apoteker/resep', [ApotekerController::class, 'resep'], ['filter' =>'role:apoteker, admin']);
 $routes->get('/apoteker/stok', [ApotekerController::class, 'stok'], ['filter' =>'role:apoteker, admin']);
+$routes->get('/apoteker/create_stok', [ApotekerController::class, 'create_stok'], ['filter' =>'role:apoteker, admin']);
+$routes->post('/apoteker/store_stok', [ApotekerController::class, 'store_stok'], ['filter' =>'role:apoteker, admin']);
+
 
 $routes->group('', ['namespace' => 'Myth\Auth\Controllers'], static function ($routes) {
     // Load the reserved routes from Auth.php
