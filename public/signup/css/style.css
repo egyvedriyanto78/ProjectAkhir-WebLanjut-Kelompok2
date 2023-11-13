@@ -8,7 +8,7 @@
 }
 
 .container {
-  height: 100vh;
+  height: 130vh;
   width: 100%;
   max-width: 1500px;
   align-items: center;
@@ -21,7 +21,7 @@
   border-radius: 10px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
   width: 400px;
-  height: 520px;
+  height: 600px;
   background-color: #EFF5FF;
   padding: 10px 30px;
 }
