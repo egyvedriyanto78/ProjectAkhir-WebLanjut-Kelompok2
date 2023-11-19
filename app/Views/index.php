@@ -26,7 +26,6 @@
             <a href="#" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"><i class="fa fa-user ms-3"></i>   Halo, <?= user()->username;?></a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0"> 
                     <a href="<?= base_url('logout'); ?>" class="dropdown-item">Logout</a>                       
-                                                                      
                     </div>
                 </div>   
             
