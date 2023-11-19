@@ -49,7 +49,7 @@ class AdminController extends BaseController
         }
 
         $data = [
-            'nickname' => $this->request->getVar('nickname'),
+            'username' => $this->request->getVar('username'),
             'foto' => $foto_path
         ];
 
