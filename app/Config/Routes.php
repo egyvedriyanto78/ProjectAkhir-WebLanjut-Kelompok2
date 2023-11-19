@@ -39,7 +39,8 @@ $routes->get('/adm/pasien', [AdminController::class, 'pasien']);
 $routes->get('/adm/apoteker', [AdminController::class, 'apoteker']);
 $routes->get('/adm/tentang', [AdminController::class, 'tentang']);
 $routes->get('/adm/galeri', [AdminController::class, 'galeri']);
-$routes->get('/adm/profil', [AdminController::class, 'profil']);
+$routes->get('adm/(:any)/profil', [AdminController::class, 'edit_profil']);
+$routes->put('/adm/profil/(:any)', [AdminController::class, 'update_profil']);
 $routes->get('/adm/akun', [AdminController::class, 'akun']);
 
 
