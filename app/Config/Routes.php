@@ -21,6 +21,10 @@ $routes->get('/service', [UserController::class,'service']);
 $routes->get('/team', [UserController::class,'doctor']);
 $routes->get('/appointment', [UserController::class,'appointment']);
 
+$routes->get('/profile/(:any)/edit', [UserController::class, 'pasien_edit']);
+$routes->put('/profile/(:any)/update', [UserController::class, 'update_pasien']);
+$routes->get('/profile/(:any)', [UserController::class,'profile']);
+
 //dokter controller
 $routes->get('/dokter', [DokterController::class,'show']);
 $routes->get('/dokter/pasien', [DokterController::class,'tablePasien']);
@@ -35,20 +39,21 @@ $routes->get('/dokter/form-pasien', [DokterController::class, 'showForm']);
 // $routes->get('/adm/dokter', [AdminController::class, 'dokter']);
 $routes->get('/adm', [AdminController::class, 'index'], ['filter' =>'role:admin']);
 $routes->get('/adm/dokter', [AdminController::class, 'dokter'], ['filter' =>'role:admin']);
-$routes->get('/adm/pasien', [AdminController::class, 'pasien']);
-$routes->get('/adm/apoteker', [AdminController::class, 'apoteker']);
-$routes->get('/adm/tentang', [AdminController::class, 'tentang']);
-$routes->get('/adm/galeri', [AdminController::class, 'galeri']);
-$routes->get('/adm/profil', [AdminController::class, 'profil']);
-$routes->get('/adm/akun', [AdminController::class, 'akun']);
+$routes->get('/adm/pasien', [AdminController::class, 'pasien'], ['filter' =>'role:admin']);
+$routes->get('/adm/pasien/(:any)/edit', [AdminController::class, 'edit_pasien'], ['filter' =>'role:admin']);
+$routes->put('/adm/pasien/(:any)/update', [AdminController::class, 'update_pasien'], ['filter' =>'role:admin']);
+$routes->delete('/adm/pasien/(:any)', [AdminController::class, 'destroy'], ['filter' =>'role:admin']);
+$routes->get('/adm/apoteker', [AdminController::class, 'apoteker'], ['filter' =>'role:admin']);
+$routes->get('/adm/tentang', [AdminController::class, 'tentang'], ['filter' =>'role:admin']);
+$routes->get('/adm/galeri', [AdminController::class, 'galeri'], ['filter' =>'role:admin']);
+$routes->get('/adm/profil', [AdminController::class, 'profil'], ['filter' =>'role:admin']);
+$routes->get('/adm/akun', [AdminController::class, 'akun'], ['filter' =>'role:admin']);
 
 
 //login routes
 $routes->get('/signin', [LoginController::class, 'Login']);
 $routes->post('/signin/store', [LoginController::class, 'store']);
 
-
-// $routes->get('/register', 'SignupController::signUp');
 
 //register routes
 $routes->get('/register', [SignupController::class, 'signUp']);
@@ -62,9 +67,9 @@ $routes->get('/apoteker/create_stok', [ApotekerController::class, 'create_stok']
 $routes->post('/apoteker/store_stok', [ApotekerController::class, 'store_stok'], ['filter' =>'role:apoteker, admin']);
 
 
-$routes->group('', ['namespace' => 'Myth\Auth\Controllers'], static function ($routes) {
+$routes->group('', ['namespace' => '\App\Controllers'], static function ($routes) {
     // Load the reserved routes from Auth.php
-    $config         = config(AuthConfig::class);
+    $config         = config(Auth::class);
     $reservedRoutes = $config->reservedRoutes;
 
     // Login/out

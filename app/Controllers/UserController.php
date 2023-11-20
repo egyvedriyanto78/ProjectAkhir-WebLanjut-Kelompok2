@@ -1,27 +1,89 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\PasienModel;
 
 class UserController extends BaseController
 {
-    public function index(): string
+    public $pasienModel;
+    public function __construct(){
+        $this->pasienModel= new PasienModel();
+        
+    }
+    public function index()
     {
-        return view('index');
+        
+        $data=[
+            'title' => 'Selamat Datang!',              
+        ];
+        return view('index', $data);
     }
     public function about(): string
     {
-        return view('about');
+        $data=[
+            'title' => 'About',              
+        ];
+        return view('about', $data);
     }
     public function service(): string
     {
-        return view('service');
+        $data=[
+            'title' => 'Service',              
+        ];
+        return view('service', $data);
     }
     public function doctor(): string
     {
-        return view('team');
+        $data=[
+            'title' => 'Daftar Dokter',              
+        ];
+        return view('team', $data);
     }
     public function appointment()
     {
-        return view ('appointment');
+        $data=[
+            'title' => 'Buat Janji',              
+        ];
+        return view ('appointment', $data);
+    }
+    public function profile($id)
+    {        
+        $db         = \Config\Database::connect();
+        $builder    = $db->table('users');
+        $builder->select('users.id as userid, username, email, nama, kontak, jenis_kelamin');
+        $builder->join('auth_groups_users','auth_groups_users.user_id = users.id');
+        $builder->join('auth_groups','auth_groups.id =  auth_groups_users.group_id');
+        $builder->where('users.id',$id);
+        $query      = $builder->get();
+
+        $data = [
+            'title' => 'Profile',
+            'users' => $query->getRow(),
+        ];
+        
+        return view ('pasien_profile', $data);
+    }
+
+    public function pasien_edit($id)
+    {
+
+        $data = [
+            'title' => 'Lengkapi Data',
+            'pasien'=> $this->pasienModel->getPasien($id)
+
+        ];
+        return view('pasien_edit', $data);
+    }
+    public function update_pasien($id)
+    {
+        $data=[
+            'nama'  => $this->request->getVar('nama'),
+            'kontak'=> $this->request->getVar('telepon'),
+        ];
+        if($this->request->getVar('jenis_kelamin')!=''){
+            $data['jenis_kelamin']=$this->request->getVar('jenis_kelamin');
+        }
+        $this->pasienModel->updatePasien($id, $data);
+        return redirect()->to('profile/'.user()->id);
     }
 }
