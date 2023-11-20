@@ -39,6 +39,9 @@ $routes->get('/dokter/form-pasien', [DokterController::class, 'showForm']);
 // $routes->get('/adm/dokter', [AdminController::class, 'dokter']);
 $routes->get('/adm', [AdminController::class, 'index'], ['filter' =>'role:admin']);
 $routes->get('/adm/dokter', [AdminController::class, 'dokter'], ['filter' =>'role:admin']);
+$routes->get('adm/(:any)/profil', [AdminController::class, 'edit_profil']);
+$routes->put('/adm/profil/(:any)', [AdminController::class, 'update_profil']);
+$routes->get('/adm/akun', [AdminController::class, 'akun'], ['filter' =>'role:admin']);
 $routes->get('/adm/pasien', [AdminController::class, 'pasien'], ['filter' =>'role:admin']);
 $routes->get('/adm/pasien/(:any)/edit', [AdminController::class, 'edit_pasien'], ['filter' =>'role:admin']);
 $routes->put('/adm/pasien/(:any)/update', [AdminController::class, 'update_pasien'], ['filter' =>'role:admin']);
@@ -46,8 +49,8 @@ $routes->delete('/adm/pasien/(:any)', [AdminController::class, 'destroy'], ['fil
 $routes->get('/adm/apoteker', [AdminController::class, 'apoteker'], ['filter' =>'role:admin']);
 $routes->get('/adm/tentang', [AdminController::class, 'tentang'], ['filter' =>'role:admin']);
 $routes->get('/adm/galeri', [AdminController::class, 'galeri'], ['filter' =>'role:admin']);
-$routes->get('/adm/profil', [AdminController::class, 'profil'], ['filter' =>'role:admin']);
-$routes->get('/adm/akun', [AdminController::class, 'akun'], ['filter' =>'role:admin']);
+
+
 
 
 //login routes

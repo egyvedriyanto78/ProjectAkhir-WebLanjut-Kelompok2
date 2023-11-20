@@ -28,6 +28,7 @@
                     <a href="<?= base_url('profile/'.user()->id); ?>" class="dropdown-item">Profile</a>                       
                     <a href="<?= base_url('logout'); ?>" class="dropdown-item">Logout</a>                                       
                                                                       
+
                     </div>
                 </div>   
             
