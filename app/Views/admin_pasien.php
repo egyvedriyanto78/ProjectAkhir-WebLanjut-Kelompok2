@@ -4,65 +4,42 @@
 
 <div class="container-fluid">
     <h2 style="text-align:center">Data Pasien <span style="color:blue">Klinik Unila</span></h2>
-    <a href="" class="btn btn-outline-primary add">ADD</a>
+    
+    <br>
     <table class="table table-info table-striped">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>No</th>
+                <th>Username</th>
+                <th>Email</th>                
                 <th>Nama</th>
-                <th>Usia</th>
                 <th>Jenis Kelamin</th>
                 <th>No. HP</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
+            <?php $i=1; ?>
+            <?php foreach ($users as $user) : ?>
             <tr>
-                <td>01</td>
-                <td>Arthur</td>
-                <td>19</td>
-                <td>Pria</td>
-                <td>081234567890</td>
+                <td scope="row"><?= $i++; ?></td>
+                <td><?= $user->username;?></td>
+                <td><?= $user->email; ?></td>                    
+                <td><?= $user->nama; ?></td>                    
+                <td><?= $user->jenis_kelamin; ?></td> 
+                <td><?= $user->kontak; ?></td>                    
+                
                 <td>
-                    <a href="" class="btn btn-warning">
-                        Edit
-                    </a>
-                    <a href="" class="btn btn-danger">
-                        Delete
-                    </a>
+                    <a href="<?= base_url('adm/pasien/'.$user->userid.'/edit'); ?>" class="btn btn-info">Edit</a>
+                    <form action="<?= base_url('adm/pasien/'.$user->userid) ?>" method="post" style="display: inline-block;">
+                        <input type="hidden" name='_method' value="DELETE">
+                        <?= csrf_field() ?>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>                    
                 </td>
-            </tr>
-            <tr>
-                <td>02</td>
-                <td>Furina</td>
-                <td>20</td>
-                <td>Wanita</td>
-                <td>089911223344</td>
-                <td>
-                    <a href="" class="btn btn-warning">
-                        Edit
-                    </a>
-                    <a href="" class="btn btn-danger">
-                        Delete
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>03</td>
-                <td>Ayaka</td>
-                <td>17</td>
-                <td>Wanita</td>
-                <td>087818283848</td>
-                <td>
-                    <a href="" class="btn btn-warning">
-                        Edit
-                    </a>
-                    <a href="" class="btn btn-danger">
-                        Delete
-                    </a>
-                </td>
-            </tr>
+            </tr> 
+            <?php endforeach; ?>                   
         </tbody>
     </table>
-
-    <?= $this->endSection() ?>
+</div>
+<?= $this->endSection('content')?>
