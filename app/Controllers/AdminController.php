@@ -89,7 +89,8 @@ class AdminController extends BaseController
 
         $data = [
             'title' => 'ADMIN | Pasien',
-            'users' => $query->getResult()
+            'users' => $query->getResult(),
+            'profil' => $this->profil
         ];
         
         return view('admin_pasien', $data);
@@ -100,7 +101,8 @@ class AdminController extends BaseController
 
         $data = [
             'title' => 'ADMIN | Edit Pasien',
-            'pasien'=> $this->pasienModel->getPasien($id)
+            'pasien'=> $this->pasienModel->getPasien($id),
+            'profil' => $this->profil
 
         ];
         return view('edit_pasien', $data);
