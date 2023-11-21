@@ -9,8 +9,8 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nama</th>
-                <th>Tanggal lahir</th>
+                <th>Username</th>
+                <th>E-Mail</th>
                 <th>Jenis Kelamin</th>
                 <th>No. HP</th>
                 <th>Alamat</th>
@@ -18,10 +18,12 @@
             </tr>
         </thead>
         <tbody>
+            <?php $no=1; foreach($users as $user){ ?>
             <tr>
-                <td>01</td>
-                <td>Barbara</td>
-                <td>5 Juli 2005</td>
+                <?php ## dd($user); ?>
+                <td><?= $no++ ?></td>
+                <td><?= $user->username ?></td>
+                <td><?= $user->email ?></td>
                 <td>Wanita</td>
                 <td>081221344356</td>
                 <td>Kampung Baru</td>
@@ -34,6 +36,7 @@
                     </a>
                 </td>
             </tr>
+            <?php } ?>
             <tr>
                 <td>02</td>
                 <td>Chris</td>
