@@ -6,16 +6,17 @@
     <h2 style="text-align:center">DOKTER <span style="color:blue">KLINIK UNILA</span></h2>
     <a href="" class="btn btn-outline-primary add">ADD</a>
     <div class="row row-cols-1 row-cols-md-3 g-4">
+        <?php foreach($users as $user) :?>
         <div class="col">
             <div class="card" style="width: 18rem;">
                 <img src="<?= base_url("admin/images/dokter/DrEgy.jpeg") ?>" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Dr. Egy Vedriyanto Sp.M.</h5>
+                    <h5 class="card-title"><?= $user->username; ?></h5>
                     <p class="card-text">IDI 01 17081945</p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Dokter Spesialis Mata</li>
-                    <li class="list-group-item">080117081945</li>
+                    <li class="list-group-item"><?= $user->kontak;?></li>
                     <li class="list-group-item">DKI Jakarta</li>
                 </ul>
                 <div class="card-body">
@@ -27,7 +28,8 @@
                 </div>
             </div>
         </div>
-        <div class="col">
+        <?php endforeach; ?>
+        <!-- <div class="col">
             <div class="card" style="width: 18rem;">
                 <img src="<?= base_url("admin/images/dokter/DrSalsa.jpeg") ?>" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -90,6 +92,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <?= $this->endSection() ?>
+        <?= $this->endSection() ?>

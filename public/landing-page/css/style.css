@@ -517,3 +517,27 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
+
+.card-profile{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.form-control{
+  margin: 5px 0;
+  width: 100%;  
+  border: 2px solid lightgray;
+  outline-color: #0463FA;  
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: black;
+}
+.form-select{
+    margin: 5px 0;
+    width: 100%;
+    border: 2px solid lightgray;
+    outline-color: #0463FA;  
+    padding: 12px 20px;
+    border-radius: 6px;
+    color: black;
+  }
