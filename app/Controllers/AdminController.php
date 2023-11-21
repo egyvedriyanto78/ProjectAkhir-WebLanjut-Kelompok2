@@ -69,8 +69,17 @@ class AdminController extends BaseController
 
     public function dokter()
     {
+        $db         = \Config\Database::connect();
+        $builder    = $db->table('users');
+        $builder->select('users.id as userid, username, email, nama, kontak');
+        $builder->join('auth_groups_users','auth_groups_users.user_id = users.id');
+        $builder->join('auth_groups','auth_groups.id =  auth_groups_users.group_id');
+        $builder->where('name = "dokter"');
+        $query      = $builder->get();
+
         $data = [
             'title' => 'ADMIN | Dokter',
+            'users' => $query->getResult(),
             'profil' => $this->profil
         ];
         return view('admin_dokter', $data);
