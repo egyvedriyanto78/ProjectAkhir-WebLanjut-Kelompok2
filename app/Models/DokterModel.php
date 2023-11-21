@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class DokterModel extends Model
 {
-    protected $table            = 'dokters';
+    protected $table            = 'users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
