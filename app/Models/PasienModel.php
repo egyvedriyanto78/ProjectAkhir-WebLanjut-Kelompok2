@@ -39,12 +39,15 @@ class PasienModel extends Model
     protected $afterDelete    = [];
 
     public function getPasien($id){
-        return $this->select('users.*')->find($id);
-        
+        return $this->select('users.*')->find($id);        
     }
+    
     public function updatePasien($id, $data){
         return $this->update($id,$data);
     }
+    // public function saveRiwayat($data){
+    //     $this->insert($data);
+    // }
 
     public function destroy($id){
         return $this->where('id', $id)->delete();
