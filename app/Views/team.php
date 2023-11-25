@@ -10,21 +10,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="home" class="nav-item nav-link">Beranda</a>
-                <a href="about" class="nav-item nav-link">Tentang</a>                
+                <a href="/" class="nav-item nav-link">Beranda</a>
+                <a href="/about" class="nav-item nav-link">Tentang</a>                
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Layanan</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0"> 
-                    <a href="service" class="dropdown-item">Fasilitas Kesehatan</a>                       
-                        <a href="team" class="dropdown-item active">Dokter</a>
-                        <a href="appointment" class="dropdown-item">Buat Janji</a>                                                
+                    <a href="/service" class="dropdown-item">Fasilitas Kesehatan</a>                       
+                        <a href="/team" class="dropdown-item active">Dokter</a>
+                        <a href="<?= base_url('appointment/'.user()->id); ?>" class="dropdown-item">Buat Janji</a>                                                                                             
                     </div>
                 </div>                
             </div>
             <div class="nav-item dropdown">
             <a href="#" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"><i class="fa fa-user ms-3"></i>   Halo, <?= user()->username;?></a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0"> 
-                    <a href="<?= base_url('profile/'.user()->id); ?>" class="dropdown-item">Profile</a>                       
+                    <a href="<?= base_url('profile/'.user()->id); ?>" class="dropdown-item">Profile</a>      
+                    <a href="<?= base_url('janji/'.user()->id); ?>" class="dropdown-item ">Janji Anda</a>                                        
                     <a href="<?= base_url('logout'); ?>" class="dropdown-item">Logout</a>                                       
                                                                       
                     </div>

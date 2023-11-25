@@ -25,8 +25,8 @@
             <div class="nav-item dropdown">
             <a href="#" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block"><i class="fa fa-user ms-3"></i>   Halo, <?= user()->username;?></a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0"> 
-                    <a href="<?= base_url('profile/'.user()->id); ?>" class="dropdown-item active">Profile</a>        
-                    <a href="<?= base_url('janji/'.user()->id); ?>" class="dropdown-item">Janji Anda</a>                                      
+                    <a href="<?= base_url('profile/'.user()->id); ?>" class="dropdown-item">Profile</a>                       
+                    <a href="<?= base_url('janji/'.user()->id); ?>" class="dropdown-item active">Janji Anda</a>                       
                     <a href="<?= base_url('logout'); ?>" class="dropdown-item">Logout</a>                                       
                                                                       
                     </div>
@@ -37,17 +37,34 @@
     <!-- Navbar End - -->    
 
 <!-- Profile Start    -->
-<div class=" card-profile card w-50">
-  <div class="card-body">
-    <h5 class="card-title">Profile</h5>
-    <p class="card-text">Username : <?= $users->username;?></p>
-    <p class="card-text">Nama Lengkap : <?= $users->nama;?></p>
-    <p class="card-text">Jenis Kelamin : <?= $users->jenis_kelamin;?></p>
-    <p class="card-text">No. Telepon : <?= $users->kontak;?></p>
-
-    <a href="<?= base_url('profile/'.$users->userid.'/edit'); ?>" class="btn btn-primary">Edit</a>    
-  </div>
+<div class="card-app">
+    <div class="tb-app">
+        <table class="table caption-top">
+        <caption>Janji Anda</caption>
+        <thead>
+            <tr>
+            <th scope="col">No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Usia</th>
+            <th scope="col">Tanggal Periksa</th>
+            <th scope="col">Keluhan</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <?php $i=1; ?>
+            <?php foreach ($record as $key): ?>        
+            <tr>
+                <th scope="row"><?= $i++; ?></th>
+                <td><?= $key['nama'] ?></td>
+                <td><?= $key['usia']?></td>
+                <td><?= $key ['tanggal'] ?></td>
+                <td><?= $key['keluhan'] ?></td>
+            </tr>
+            <?php endforeach; ?>       
+            
+        </tbody>
+        </table>
+    </div>
 </div>
-
-
-<?= $this->endSection ('content') ?>        
+<?= $this->endSection ('content') ?> 

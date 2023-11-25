@@ -147,7 +147,7 @@ class AdminController extends BaseController
         $query= $builder->get();
         $data = [
             'title' => 'ADMIN | Apoteker',
-            'users' => $query->getResult()
+            'users' => $query->getResult(),
             'profil' => $this->profil
         ];
         return view('admin_apoteker', $data);
