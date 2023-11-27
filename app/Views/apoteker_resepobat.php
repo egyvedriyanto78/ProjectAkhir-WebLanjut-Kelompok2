@@ -20,26 +20,34 @@
                           <h6 class="fw-semibold mb-0">Nama Pasien</h6>
                         </th>
                         <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Usia</h6>
+                        </th>
+                        <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Obat</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Dokter</h6>
+                          <h6 class="fw-semibold mb-0">Tanggal</h6>
                         </th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php $no=1; foreach($resep as $item){?>
                       <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0"><?= $no++ ?></h6></td>
                         <td class="border-bottom-0">
-                            <span class="fw-normal">Rani</span>                          
+                            <span class="fw-normal"><?= $item->nama ?></span>                          
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Promaag</p>
+                            <span class="fw-normal"><?= $item->usia ?></span>                          
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">dr. lingling</p>
+                          <p class="mb-0 fw-normal"><?= $item->resep_obat ?></p>
                         </td>
-                      </tr>                       
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal"><?= $item->tanggal ?></p>
+                        </td>
+                      </tr>   
+                      <?php } ?>                    
                     </tbody>
                   </table>
                 </div>

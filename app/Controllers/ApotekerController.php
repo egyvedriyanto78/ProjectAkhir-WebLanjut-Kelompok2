@@ -17,7 +17,17 @@ class ApotekerController extends BaseController
     }
     public function resep()
     {
-        return view('apoteker_resepobat');
+        $db         = \Config\Database::connect();
+        $builder    = $db->table('rekam_medis');
+        $builder->select('rekam_medis.id as rekamid, nama, usia, tanggal, keluhan,diagnosa, resep_obat');
+        $builder->join('users','users.id = rekam_medis.id_pasien');
+        // $builder->where('name = "dokter"');
+        $query      = $builder->get();
+        $data = [
+            'title' => 'Apoteker | Resep Obat',
+            'resep' => $query->getResult(),
+        ];
+        return view('apoteker_resepobat',$data);
     }
     public function stok()
     {
