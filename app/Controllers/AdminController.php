@@ -17,9 +17,9 @@ class AdminController extends BaseController
     {
         $this->adminModel = new AdminModel();
         $this->profil = $this->adminModel->getProfil(1);
-        $this->pasienModel= new PasienModel(); 
+        $this->pasienModel = new PasienModel();
     }
-  
+
     public function index()
     {
         $data = [
@@ -64,18 +64,24 @@ class AdminController extends BaseController
                 ->with('error', 'Gagal Menyimpan data');
         }
 
-        return redirect()->to('/adm');
+        return redirect()->back();
+    }
+
+    public function deletePhoto($id)
+    {
+        $this->adminModel->deletePhotoProfil($id);
+        return redirect()->back();
     }
 
     public function dokter()
     {
-        $db         = \Config\Database::connect();
-        $builder    = $db->table('users');
+        $db = \Config\Database::connect();
+        $builder = $db->table('users');
         $builder->select('users.id as userid, username, email, nama, kontak');
-        $builder->join('auth_groups_users','auth_groups_users.user_id = users.id');
-        $builder->join('auth_groups','auth_groups.id =  auth_groups_users.group_id');
+        $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+        $builder->join('auth_groups', 'auth_groups.id =  auth_groups_users.group_id');
         $builder->where('name = "dokter"');
-        $query      = $builder->get();
+        $query = $builder->get();
 
         $data = [
             'title' => 'ADMIN | Dokter',
@@ -87,21 +93,21 @@ class AdminController extends BaseController
 
     public function pasien()
     {
-        
-        $db         = \Config\Database::connect();
-        $builder    = $db->table('users');
+
+        $db = \Config\Database::connect();
+        $builder = $db->table('users');
         $builder->select('users.id as userid, username, email, nama, kontak, jenis_kelamin');
-        $builder->join('auth_groups_users','auth_groups_users.user_id = users.id');
-        $builder->join('auth_groups','auth_groups.id =  auth_groups_users.group_id');
+        $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+        $builder->join('auth_groups', 'auth_groups.id =  auth_groups_users.group_id');
         $builder->where('name = "pasien"');
-        $query      = $builder->get();
+        $query = $builder->get();
 
         $data = [
             'title' => 'ADMIN | Pasien',
             'users' => $query->getResult(),
             'profil' => $this->profil
         ];
-        
+
         return view('admin_pasien', $data);
     }
 
@@ -110,7 +116,7 @@ class AdminController extends BaseController
 
         $data = [
             'title' => 'ADMIN | Edit Pasien',
-            'pasien'=> $this->pasienModel->getPasien($id),
+            'pasien' => $this->pasienModel->getPasien($id),
             'profil' => $this->profil
 
         ];
@@ -119,32 +125,32 @@ class AdminController extends BaseController
 
     public function update_pasien($id)
     {
-        $data=[
-            'nama'  => $this->request->getVar('nama'),
-            'kontak'=> $this->request->getVar('telepon'),
+        $data = [
+            'nama' => $this->request->getVar('nama'),
+            'kontak' => $this->request->getVar('telepon'),
         ];
-        if($this->request->getVar('jenis_kelamin')!=''){
-            $data['jenis_kelamin']=$this->request->getVar('jenis_kelamin');
+        if ($this->request->getVar('jenis_kelamin') != '') {
+            $data['jenis_kelamin'] = $this->request->getVar('jenis_kelamin');
         }
         $this->pasienModel->updatePasien($id, $data);
         return redirect()->to('adm/pasien');
     }
-    
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $this->pasienModel->destroy($id);
         return redirect()->to('adm/pasien');
     }
 
     public function apoteker()
     {
-        $db      = \Config\Database::connect();
+        $db = \Config\Database::connect();
         $builder = $db->table('users');
         $builder->select('users.id as userid, username, email');
-        $builder->join('auth_groups_users','auth_groups_users.user_id = users.id');
-        $builder->join('auth_groups','auth_groups.id = auth_groups_users.group_id');
+        $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+        $builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
         $builder->where('auth_groups.id', 2);
-        $query= $builder->get();
+        $query = $builder->get();
         $data = [
             'title' => 'ADMIN | Apoteker',
             'users' => $query->getResult(),
@@ -177,6 +183,7 @@ class AdminController extends BaseController
             'title' => 'ADMIN | Akun',
             'profil' => $this->profil
         ];
+
         return view('admin_akun', $data);
     }
 }
