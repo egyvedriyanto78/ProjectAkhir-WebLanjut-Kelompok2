@@ -29,7 +29,7 @@ class AuthController extends Controller
         $this->session = service('session');
 
         $this->config = config('Auth');
-        $this->auth   = service('authentication');
+        $this->auth = service('authentication');
     }
 
     //--------------------------------------------------------------------
@@ -65,18 +65,18 @@ class AuthController extends Controller
     public function attemptLogin()
     {
         $rules = [
-            'login'    => 'required',
+            'login' => 'required',
             'password' => 'required',
         ];
         if ($this->config->validFields === ['email']) {
             $rules['login'] .= '|valid_email';
         }
 
-        if (! $this->validate($rules)) {
+        if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        $login    = $this->request->getPost('login');
+        $login = $this->request->getPost('login');
         $password = $this->request->getPost('password');
         $remember = (bool) $this->request->getPost('remember');
 
@@ -84,7 +84,7 @@ class AuthController extends Controller
         $type = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
         // Try to log them in...
-        if (! $this->auth->attempt([$type => $login, 'password' => $password], $remember)) {
+        if (!$this->auth->attempt([$type => $login, 'password' => $password], $remember)) {
             return redirect()->back()->withInput()->with('error', $this->auth->error() ?? lang('Auth.badAttempt'));
         }
 
@@ -126,7 +126,7 @@ class AuthController extends Controller
         }
 
         // Check if registration is allowed
-        if (! $this->config->allowRegistration) {
+        if (!$this->config->allowRegistration) {
             return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
         }
 
@@ -139,7 +139,7 @@ class AuthController extends Controller
     public function attemptRegister()
     {
         // Check if registration is allowed
-        if (! $this->config->allowRegistration) {
+        if (!$this->config->allowRegistration) {
             return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
         }
 
@@ -148,43 +148,43 @@ class AuthController extends Controller
         // Validate basics first since some password rules rely on these fields
         $rules = config('Validation')->registrationRules ?? [
             'username' => 'required|alpha_numeric_space|min_length[3]|max_length[30]|is_unique[users.username]',
-            'email'    => 'required|valid_email|is_unique[users.email]',
+            'email' => 'required|valid_email|is_unique[users.email]',
         ];
 
-        if (! $this->validate($rules)) {
+        if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
         // Validate passwords since they can only be validated properly here
         $rules = [
-            'password'     => 'required|strong_password',
+            'password' => 'required|strong_password',
             'pass_confirm' => 'required|matches[password]',
         ];
 
-        if (! $this->validate($rules)) {
+        if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
         // Save the user
         $allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
-        $user              = new User($this->request->getPost($allowedPostFields));
+        $user = new User($this->request->getPost($allowedPostFields));
 
         $this->config->requireActivation === null ? $user->activate() : $user->generateActivateHash();
 
         // Ensure default group gets assigned if set
-        if (! empty($this->config->defaultUserGroup)) {
+        if (!empty($this->config->defaultUserGroup)) {
             $users = $users->withGroup($this->config->defaultUserGroup);
         }
 
-        if (! $users->save($user)) {
+        if (!$users->save($user)) {
             return redirect()->back()->withInput()->with('errors', $users->errors());
         }
 
         if ($this->config->requireActivation !== null) {
             $activator = service('activator');
-            $sent      = $activator->send($user);
+            $sent = $activator->send($user);
 
-            if (! $sent) {
+            if (!$sent) {
                 return redirect()->back()->withInput()->with('error', $activator->error() ?? lang('Auth.unknownError'));
             }
 
@@ -229,7 +229,7 @@ class AuthController extends Controller
             ],
         ];
 
-        if (! $this->validate($rules)) {
+        if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
@@ -246,9 +246,9 @@ class AuthController extends Controller
         $users->save($user);
 
         $resetter = service('resetter');
-        $sent     = $resetter->send($user);
+        $sent = $resetter->send($user);
 
-        if (! $sent) {
+        if (!$sent) {
             return redirect()->back()->withInput()->with('error', $resetter->error() ?? lang('Auth.unknownError'));
         }
 
@@ -258,6 +258,7 @@ class AuthController extends Controller
     /**
      * Displays the Reset Password form.
      */
+
     public function resetPassword()
     {
         if ($this->config->activeResetter === null) {
@@ -268,7 +269,7 @@ class AuthController extends Controller
 
         return $this->_render($this->config->views['reset'], [
             'config' => $this->config,
-            'token'  => $token,
+            'token' => $token,
         ]);
     }
 
@@ -295,13 +296,13 @@ class AuthController extends Controller
         );
 
         $rules = [
-            'token'        => 'required',
-            'email'        => 'required|valid_email',
-            'password'     => 'required|strong_password',
+            'token' => 'required',
+            'email' => 'required|valid_email',
+            'password' => 'required|strong_password',
             'pass_confirm' => 'required|matches[password]',
         ];
 
-        if (! $this->validate($rules)) {
+        if (!$this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
@@ -314,15 +315,15 @@ class AuthController extends Controller
         }
 
         // Reset token still valid?
-        if (! empty($user->reset_expires) && time() > $user->reset_expires->getTimestamp()) {
+        if (!empty($user->reset_expires) && time() > $user->reset_expires->getTimestamp()) {
             return redirect()->back()->withInput()->with('error', lang('Auth.resetTokenExpired'));
         }
 
         // Success! Save the new password, and cleanup the reset hash.
-        $user->password         = $this->request->getPost('password');
-        $user->reset_hash       = null;
-        $user->reset_at         = date('Y-m-d H:i:s');
-        $user->reset_expires    = null;
+        $user->password = $this->request->getPost('password');
+        $user->reset_hash = null;
+        $user->reset_at = date('Y-m-d H:i:s');
+        $user->reset_expires = null;
         $user->force_pass_reset = false;
         $users->save($user);
 
@@ -384,7 +385,7 @@ class AuthController extends Controller
         }
 
         $login = urldecode($this->request->getGet('login'));
-        $type  = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $type = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
         $users = model(UserModel::class);
 
@@ -397,9 +398,9 @@ class AuthController extends Controller
         }
 
         $activator = service('activator');
-        $sent      = $activator->send($user);
+        $sent = $activator->send($user);
 
-        if (! $sent) {
+        if (!$sent) {
             return redirect()->back()->withInput()->with('error', $activator->error() ?? lang('Auth.unknownError'));
         }
 

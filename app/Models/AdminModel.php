@@ -54,7 +54,8 @@ class AdminModel extends Model
         return $this->update($id, $data);
     }
 
-    // public function deleteProfil($id){
-    //     return $this->delete($id);
-    // }
+    public function deletePhotoProfil($id){
+        $data = ['foto' => null];
+        return $this->update($id, $data);
+    }
 }

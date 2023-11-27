@@ -7,13 +7,12 @@
     <title>
         <?= $title ?>
     </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="<?= base_url("admin/css/style.css") ?>">
     <link rel="stylesheet" href="<?= base_url("admin/css/styles.css") ?>">
     <link rel="stylesheet" href="<?= base_url("admin/css/styles.min.css") ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('login/css/style.css') ?>">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -127,17 +126,19 @@
                     </ul>
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-                            <h5><?= $profil['username'] ?></h5>
+                            <h5>
+                                <?= $profil['username'] ?>
+                            </h5>
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="<?= $profil['foto'] ?? base_url("../admin/images/profile/user-1.jpg") ?>" alt="" width="35" height="35"
-                                        class="rounded-circle">
+                                    <img src="<?= $profil['foto'] ?? base_url("../admin/images/profile/user-1.jpg") ?>"
+                                        alt="" width="35" height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="<?= base_url('adm/'. $profil['id'] .'/profil') ?>"
+                                        <a href="<?= base_url('adm/' . $profil['id'] . '/profil') ?>"
                                             class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">Profil</p>
@@ -166,11 +167,12 @@
         </div>
     </div>
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <script src="<?= base_url("admin/libs/jquery/dist/jquery.min.js") ?>"></script>
     <script src="<?= base_url("admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js") ?>"></script>
     <script src="<?= base_url("admin/js/sidebarmenu.js") ?>"></script>
@@ -179,6 +181,7 @@
     <script src="<?= base_url("admin/libs/simplebar/dist/simplebar.js") ?>"></script>
     <script src="<?= base_url("admin/js/dashboard.js") ?>"></script>
     <script src="<?= base_url("admin/js/gallery.js") ?>"></script>
+    <script src="<?= base_url("admin/js/preview.js") ?>"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
