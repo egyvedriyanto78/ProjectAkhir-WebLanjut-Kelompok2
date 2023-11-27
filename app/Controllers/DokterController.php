@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\DokterModel;
 use App\Models\RecordModel;
 
 class DokterController extends BaseController
 {
     public $rekam;
+    public $dokter;
 
     public function __construct(){
         $this->rekam= new RecordModel();
+        $this->dokter= new DokterModel();
     }
     public function dashboard()
     {
@@ -56,6 +59,17 @@ class DokterController extends BaseController
 
     public function profile(){
         return view ('dashboard/profile');
+    }
+    public function updateProfile($id){
+        $data=[
+            'nama'=>$this->request->getVar('nama'),
+            'kontak'=>$this->request->getVar('kontak'),
+            'email'=> $this->request->getVar('email'),
+        ];
+        
+        $this->dokter->updateProfile($id, $data);
+        return redirect()->to('dokter/profile');
+        
     }
     
     public function showForm(){

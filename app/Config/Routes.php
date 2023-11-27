@@ -35,6 +35,7 @@ $routes->put('dokter/rkmedis/(:any)/update', [DokterController::class,'updateRkm
 $routes->delete('/dokter/rkmedis/(:any)', [DokterController::class,'destroy']);
 $routes->get('/dokter', [DokterController::class, 'dashboard']);
 $routes->get('/dokter/profile', [DokterController::class, 'profile']);
+$routes->put('/dokter/profile/(:any)/update', [DokterController::class, 'updateProfile']);
 $routes->get('/dokter/form-pasien', [DokterController::class, 'showForm']);
 
 //Admin Routes
