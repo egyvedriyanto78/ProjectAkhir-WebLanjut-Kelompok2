@@ -12,7 +12,7 @@ class DokterModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id','nama'];
+    protected $allowedFields    = ['id','nama', 'kontak', 'email'];
 
     // Dates
     protected $useTimestamps = false;
@@ -38,6 +38,8 @@ class DokterModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    
+
     //public function getDokter($id= null){
         // if($id!= null){
         //     return $this->select('users.id as userid, nama')
@@ -51,5 +53,8 @@ class DokterModel extends Model
         // ->join('auth_groups','auth_groups.id =  auth_groups_users.group_id')
         // ->where('name = "dokter"')->findAll();
     //}    
+    public function updateProfile($id, $data){
+        return $this->update($id,$data);
+    }
     
 }

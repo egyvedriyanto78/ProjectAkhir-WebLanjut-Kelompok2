@@ -51,7 +51,27 @@ class RecordModel extends Model
                     ->join('users', 'users.id= rekam_medis.id_pasien')
                     ->findAll();
     }
+    public function editRekam($id = null){
+        if($id != null){
+            return $this->select('rekam_medis.id as idrecord, rekam_medis.id_pasien as idpasien, rekam_medis.nama, rekam_medis.usia,
+                        rekam_medis.tanggal, rekam_medis.keluhan, rekam_medis.diagnosa, rekam_medis.resep_obat')
+                        ->join('users', 'users.id= rekam_medis.id_pasien')
+                        ->where('rekam_medis.id', $id)
+                        ->first();
+        }
+        return $this->select('rekam_medis.id as idrecord, rekam_medis.id_pasien, rekam_medis.nama, rekam_medis.usia,
+                    rekam_medis.tanggal, rekam_medis.keluhan, rekam_medis.diagnosa, rekam_medis.resep_obat')
+                    ->join('users', 'users.id= rekam_medis.id_pasien')
+                    ->findAll();
+    }
+    
     public function saveRiwayat($data){
         $this->insert($data);
+    }
+    public function updateRkmedis($id, $data){
+        return $this->update($id,$data);
+    }
+    public function destroy($id){
+        return $this->where('id', $id)->delete();
     }
 }
