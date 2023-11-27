@@ -29,11 +29,13 @@ $routes->get('/profile/(:any)', [UserController::class,'profile']);
 //dokter controller
 $routes->get('/dokter', [DokterController::class,'show']);
 $routes->get('/dokter/pasien', [DokterController::class,'tablePasien']);
-$routes->get('/dokter/obat', [DokterController::class,'tableObat']);
+$routes->get('/dokter/rkmedis', [DokterController::class,'rekamMedis']);
+$routes->get('/dokter/rkmedis/(:any)/edit', [DokterController::class,'editRkmedis']);
+$routes->put('dokter/rkmedis/(:any)/update', [DokterController::class,'updateRkmedis']);
+$routes->delete('/dokter/rkmedis/(:any)', [DokterController::class,'destroy']);
 $routes->get('/dokter', [DokterController::class, 'dashboard']);
 $routes->get('/dokter/profile', [DokterController::class, 'profile']);
 $routes->get('/dokter/form-pasien', [DokterController::class, 'showForm']);
-
 
 //Admin Routes
 // $routes->get('/adm', [AdminController::class, 'index']);

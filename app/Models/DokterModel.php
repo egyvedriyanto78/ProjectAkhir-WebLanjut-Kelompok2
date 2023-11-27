@@ -38,6 +38,8 @@ class DokterModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
+    
+
     //public function getDokter($id= null){
         // if($id!= null){
         //     return $this->select('users.id as userid, nama')
