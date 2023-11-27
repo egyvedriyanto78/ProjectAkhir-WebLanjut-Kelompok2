@@ -1,14 +1,21 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\DokterModel;
 use App\Models\PasienModel;
+use App\Models\RecordModel;
 
 class UserController extends BaseController
 {
     public $pasienModel;
+    public $dokterModel;
+    public $riwayat;
+    public $rekam;
+    protected $helpers = ['form'];
     public function __construct(){
         $this->pasienModel= new PasienModel();
-        
+        $this->dokterModel= new DokterModel();
+        $this->rekam= new RecordModel();        
     }
     public function index()
     {
@@ -39,12 +46,35 @@ class UserController extends BaseController
         ];
         return view('team', $data);
     }
-    public function appointment()
-    {
+    public function appointment($id)
+    {                
+
         $data=[
-            'title' => 'Buat Janji',              
-        ];
+            'title' => 'Buat Janji',            
+            'pasien'=> $this->pasienModel->getPasien($id),            
+        ];    
         return view ('appointment', $data);
+    }
+    public function store($id)
+    {        
+        $riwayat= new RecordModel();
+        $riwayat->save([
+            'id_pasien' =>user()->id,
+            'nama'      =>$this->request->getVar('nama'),
+            'usia'      =>$this->request->getVar('usia'),            
+            'tanggal'=> $this->request->getVar('tanggal'),
+            'keluhan'   =>$this->request->getVar('keluhan'),
+        ]);            
+        
+        return redirect()->to('/');
+    }
+    public function show_janji($id_pasien){                
+        $data=[
+            'title'=>'Janji Anda',
+            'record'=>$this->rekam->getRekam($id_pasien),
+        ];
+        // dd($data);
+        return view('janji_pasien', $data);
     }
     public function profile($id)
     {        

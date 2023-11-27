@@ -334,55 +334,32 @@
 <main id="main" class="main">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Default Table</h5>
+            <h5 class="card-title">Data Pasien</h5>
 
             <!-- Default Table -->
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Birth Date</th>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Jenis Kelamin</th>
+                        <th scope="col">Kontak</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php 
+                    $no = 1;
+                    foreach($users as $user) {
+                    ?>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Brandon Jacob</td>
-                        <td>Male</td>
-                        <td>25</td>
-                        <td>1998-05-25</td>
+                        <th scope="row"><?= $no++ ?></th>
+                        <td><?=$user->nama;?></td>
+                        <td><?=$user->jenis_kelamin;?></td>
+                        <td><?=$user->kontak;?></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Bridie Kessler</td>
-                        <td>Female</td>
-                        <td>35</td>
-                        <td>1988-12-05</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Ashleigh Langosh</td>
-                        <td>Female</td>
-                        <td>45</td>
-                        <td>1978-08-12</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Angus Grady</td>
-                        <td>Female</td>
-                        <td>34</td>
-                        <td>1989-06-11</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Raheem Lehner</td>
-                        <td>Male</td>
-                        <td>47</td>
-                        <td>1976-04-19</td>
-                    </tr>
+                    <?php
+                     }
+                     ?>
                 </tbody>
             </table>
             <!-- End Default Table Example -->

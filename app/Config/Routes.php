@@ -14,25 +14,31 @@ use Config\Auth;
  * @var RouteCollection $routes
  */
 // $routes->get('/user/create', [UserController::class,'create']);
-$routes->get('/', [UserController::class, 'index']);
-$routes->get('/home', [UserController::class, 'index']);
-$routes->get('/about', [UserController::class, 'about']);
-$routes->get('/service', [UserController::class, 'service']);
-$routes->get('/team', [UserController::class, 'doctor']);
-$routes->get('/appointment', [UserController::class, 'appointment']);
+
+$routes->get('/', [UserController::class,'index']);
+$routes->get('/home', [UserController::class,'index']);
+$routes->get('/about', [UserController::class,'about']);
+$routes->get('/service', [UserController::class,'service']);
+$routes->get('/team', [UserController::class,'doctor']);
+$routes->get('/appointment/(:any)', [UserController::class,'appointment']);
+$routes->post('/appointment/(:any)/store', [UserController::class,'store']);
+$routes->get('/janji/(:any)', [UserController::class,'show_janji']);
 
 $routes->get('/profile/(:any)/edit', [UserController::class, 'pasien_edit']);
 $routes->put('/profile/(:any)/update', [UserController::class, 'update_pasien']);
 $routes->get('/profile/(:any)', [UserController::class, 'profile']);
 
 //dokter controller
-$routes->get('/dokter', [DokterController::class, 'show']);
-$routes->get('/dokter/pasien', [DokterController::class, 'tablePasien']);
-$routes->get('/dokter/obat', [DokterController::class, 'tableObat']);
+$routes->get('/dokter', [DokterController::class,'show']);
+$routes->get('/dokter/pasien', [DokterController::class,'tablePasien']);
+$routes->get('/dokter/rkmedis', [DokterController::class,'rekamMedis']);
+$routes->get('/dokter/rkmedis/(:any)/edit', [DokterController::class,'editRkmedis']);
+$routes->put('dokter/rkmedis/(:any)/update', [DokterController::class,'updateRkmedis']);
+$routes->delete('/dokter/rkmedis/(:any)', [DokterController::class,'destroy']);
 $routes->get('/dokter', [DokterController::class, 'dashboard']);
 $routes->get('/dokter/profile', [DokterController::class, 'profile']);
+$routes->put('/dokter/profile/(:any)/update', [DokterController::class, 'updateProfile']);
 $routes->get('/dokter/form-pasien', [DokterController::class, 'showForm']);
-
 
 //Admin Routes
 // $routes->get('/adm', [AdminController::class, 'index']);

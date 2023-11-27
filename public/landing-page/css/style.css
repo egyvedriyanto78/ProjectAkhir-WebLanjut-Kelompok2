@@ -540,4 +540,22 @@
     padding: 12px 20px;
     border-radius: 6px;
     color: black;
-  }
+}
+.card-app{
+    max-width: 800px;
+    margin-top: 50px;
+    margin-left: 400px;       
+    align-content: center;
+}
+
+.tb-app{
+    max-width: 650px;            
+}
+.tb-app caption{
+    font-weight: 700;
+    font-size: 20px;
+}
+/* .table{
+    color: aliceblue;
+} */
+
