@@ -25,7 +25,20 @@ class DokterController extends BaseController
     }
     
     public function tablePasien(){
-        return view ('dashboard/table-pasien');
+        
+        $db         = \Config\Database::connect();
+        $builder    = $db->table('users');
+        $builder->select('users.id as userid, username, email, nama, kontak, jenis_kelamin');
+        $builder->join('auth_groups_users','auth_groups_users.user_id = users.id');
+        $builder->join('auth_groups','auth_groups.id =  auth_groups_users.group_id');
+        $builder->where('name = "pasien"');
+        $query      = $builder->get();
+
+        $data = [
+            'title' => 'DOKTER | Pasien',
+            'users' => $query->getResult(),
+        ];
+        return view ('dashboard/table-pasien', $data);
     }
     public function rekamMedis(){
         $data=[
