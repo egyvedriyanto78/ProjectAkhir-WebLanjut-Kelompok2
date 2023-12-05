@@ -12,7 +12,7 @@ class RecordModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_pasien','nama','usia','tanggal','keluhan', 'diagnosa', 'resep_obat'];
+    protected $allowedFields    = ['id_pasien','nama','usia','tanggal','keluhan', 'diagnosa', 'resep_obat','status'];
 
     // Dates
     protected $useTimestamps = false;
@@ -53,5 +53,8 @@ class RecordModel extends Model
     }
     public function saveRiwayat($data){
         $this->insert($data);
+    }
+    public function updateRiwayat($data, $id){
+        $this->update($id, $data);
     }
 }

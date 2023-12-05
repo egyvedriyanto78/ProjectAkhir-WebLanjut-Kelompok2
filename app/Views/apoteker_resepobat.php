@@ -1,6 +1,6 @@
 <?= $this->extend ('layouts/app_apoteker')?>
 <?= $this->section ('content') ?>
-
+<?php## dd(user_id()); ?>
       <!--  Header End -->
       <div class="container-fluid">
         <!--  Row 1 -->
@@ -28,6 +28,9 @@
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Tanggal</h6>
                         </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Status</h6>
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -45,6 +48,15 @@
                         </td>
                         <td class="border-bottom-0">
                           <p class="mb-0 fw-normal"><?= $item->tanggal ?></p>
+                        </td>
+                        <td class="border-bottom-0">
+                          <?php if($item->status == 'Menunggu'){?>
+                            <p class="mb-0 fw-normal"><a href="<?= base_url('/apoteker/resep/' . $item->rekamid . '/update')?>" class="btn btn-info">Menunggu</a></p>
+                            <?php
+                          } elseif($item->status == 'Selesai' ){
+                            echo '<p class="mb-0 fw-normal"><button class="btn btn-success">Selesai</button></p>';
+                          }
+                          ?>
                         </td>
                       </tr>   
                       <?php } ?>                    

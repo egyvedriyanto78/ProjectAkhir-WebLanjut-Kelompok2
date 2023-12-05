@@ -66,6 +66,7 @@ $routes->post('/register/store', [SignupController::class, 'store']);
 // Apoteker Controller
 $routes->get('/apoteker/dashboard', [ApotekerController::class, 'index'], ['filter' =>'role:apoteker, admin']);
 $routes->get('/apoteker/resep', [ApotekerController::class, 'resep'], ['filter' =>'role:apoteker, admin']);
+$routes->get('/apoteker/resep/(:any)/update', [ApotekerController::class, 'update_status_resep'], ['filter' =>'role:apoteker, admin']);
 $routes->get('/apoteker/stok', [ApotekerController::class, 'stok'], ['filter' =>'role:apoteker, admin']);
 $routes->get('/apoteker/create_stok', [ApotekerController::class, 'create_stok'], ['filter' =>'role:apoteker, admin']);
 $routes->post('/apoteker/store_stok', [ApotekerController::class, 'store_stok'], ['filter' =>'role:apoteker, admin']);
