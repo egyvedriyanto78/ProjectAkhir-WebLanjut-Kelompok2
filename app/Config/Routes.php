@@ -56,6 +56,9 @@ $routes->delete('/adm/pasien/(:any)', [AdminController::class, 'destroy'], ['fil
 $routes->get('/adm/apoteker', [AdminController::class, 'apoteker'], ['filter' => 'role:admin']);
 $routes->get('/adm/tentang', [AdminController::class, 'tentang'], ['filter' => 'role:admin']);
 $routes->get('/adm/galeri', [AdminController::class, 'galeri'], ['filter' => 'role:admin']);
+$routes->get('adm/(:any)/editdokter', [AdminController::class, 'edit_dokter']);
+$routes->put('adm/updatedokter/(:any)', [AdminController::class, 'update_dokter']);
+$routes->delete('/adm/dokter/(:any)', [AdminController::class, 'destroyDokter'], ['filter' => 'role:admin']);
 
 
 
@@ -91,6 +94,10 @@ $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes
     $routes->get($reservedRoutes['register'], 'AuthController::register', ['as' => $reservedRoutes['register']]);
     $routes->post($reservedRoutes['register'], 'AuthController::attemptRegister');
 
+    // Create Dokter
+    $routes->get($reservedRoutes['create_dokter'], 'AuthController::create_dokter', ['as' => $reservedRoutes['create_dokter']]);
+    $routes->post($reservedRoutes['create_dokter'], 'AuthController::save_dokter');
+
     // Activation
     $routes->get($reservedRoutes['activate-account'], 'AuthController::activateAccount', ['as' => $reservedRoutes['activate-account']]);
     $routes->get($reservedRoutes['resend-activate-account'], 'AuthController::resendActivateAccount', ['as' => $reservedRoutes['resend-activate-account']]);
@@ -101,4 +108,3 @@ $routes->group('', ['namespace' => '\App\Controllers'], static function ($routes
     $routes->get($reservedRoutes['reset-password'], 'AuthController::resetPassword', ['as' => $reservedRoutes['reset-password']]);
     $routes->post($reservedRoutes['reset-password'], 'AuthController::attemptReset');
 });
-

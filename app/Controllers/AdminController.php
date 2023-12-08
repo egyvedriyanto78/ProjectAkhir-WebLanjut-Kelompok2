@@ -5,12 +5,14 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\AdminModel;
 use App\Models\PasienModel;
+use App\Models\DokterModel;
 
 
 class AdminController extends BaseController
 {
     public $adminModel;
     public $pasienModel;
+    public $dokterModel;
     private $profil;
 
     public function __construct()
@@ -18,6 +20,7 @@ class AdminController extends BaseController
         $this->adminModel = new AdminModel();
         $this->profil = $this->adminModel->getProfil(1);
         $this->pasienModel = new PasienModel();
+        $this->dokterModel = new DokterModel();
     }
 
     public function index()
@@ -77,7 +80,7 @@ class AdminController extends BaseController
     {
         $db = \Config\Database::connect();
         $builder = $db->table('users');
-        $builder->select('users.id as userid, username, email, nama, kontak');
+        $builder->select('users.*,users.id as userid');
         $builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
         $builder->join('auth_groups', 'auth_groups.id =  auth_groups_users.group_id');
         $builder->where('name = "dokter"');
@@ -89,6 +92,46 @@ class AdminController extends BaseController
             'profil' => $this->profil
         ];
         return view('admin_dokter', $data);
+    }
+
+    public function edit_dokter($id)
+    {
+
+        $data = [
+            'title' => 'ADMIN | Edit Dokter',
+            'dokter' => $this->dokterModel->getDokter($id),
+            'profil' => $this->profil
+
+        ];
+        return view('admin_edit_dokter', $data);
+    }
+
+    public function update_dokter($id){
+        $data = [
+            'idi' => $this->request->getVar('idi'),
+            'nama' => $this->request->getVar('nama'),
+            'spesialisasi' => $this->request->getVar('spesialisasi'),
+            'wilayah' => $this->request->getVar('wilayah'),
+        ];
+
+        $result = $this->dokterModel->updateDokter($data, $id);
+
+        if(!$result){
+            return redirect()->back()->withInput()
+                ->with('error', 'Gagal menyimpan data' );
+        }
+
+        return redirect()->to(base_url('/adm/dokter'));
+    }
+    
+    public function destroyDokter($id){
+        $result = $this->dokterModel->deleteDokter($id);
+        if(!$result){
+            return redirect()->back()->with('error', 'Gagal menghapus data' );
+        }
+
+        return redirect()->to(base_url('/adm/dokter'))
+            ->with('success', 'Berhasil menghapus data');
     }
 
     public function pasien()

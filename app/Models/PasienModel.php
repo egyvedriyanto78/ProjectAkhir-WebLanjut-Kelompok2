@@ -12,7 +12,7 @@ class PasienModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'kontak','jenis_kelamin'];
+    protected $allowedFields    = ['email','username','nama', 'kontak','jenis_kelamin'];
 
     // Dates
     protected $useTimestamps = true;
@@ -52,6 +52,17 @@ class PasienModel extends Model
     public function destroy($id){
         return $this->where('id', $id)->delete();
     }
+
+    public function getJumlahPasien(){    
+        
+        return $this->select('COUNT(*) as total_pasien')
+        ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
+        ->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id')
+        ->where('auth_groups.name', 'pasien')
+        ->get()
+        ->getRow()
+        ->total_pasien;
+    }    
 
     
 }
