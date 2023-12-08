@@ -1,72 +1,71 @@
 body {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .add {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-.card-img-top {
-    height: 400px;
+/* .card-img-top {
+  height: 400px;
+} */
+
+.portfolio-menu {
+  text-align: center;
+}
+.portfolio-menu ul li {
+  display: inline-block;
+  margin: 0;
+  list-style: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  -webkit-transition: all 05s ease;
+  -moz-transition: all 05s ease;
+  -ms-transition: all 05s ease;
+  -o-transition: all 05s ease;
+  transition: all 0.5s ease;
 }
 
-.portfolio-menu{
-	text-align:center;
-}
-.portfolio-menu ul li{
-	display:inline-block;
-	margin:0;
-	list-style:none;
-	padding:10px 15px;
-	cursor:pointer;
-	-webkit-transition:all 05s ease;
-	-moz-transition:all 05s ease;
-	-ms-transition:all 05s ease;
-	-o-transition:all 05s ease;
-	transition:all .5s ease;
-}
-
-.portfolio-item .item{
-	/*width:303px;*/
-	float:left;
-	margin-bottom:10px;
+.portfolio-item .item {
+  /*width:303px;*/
+  float: left;
+  margin-bottom: 10px;
 }
 
 main {
-	width: 700px;
-	height: 400px;
-	background-color: #282A3A;
-	margin: 0 auto;
-	padding-top: 2rem;
-	margin-bottom: 1rem;
-	border-radius: 10px;
+  width: 700px;
+  height: 400px;
+  background-color: #282a3a;
+  margin: 0 auto;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
 }
 
 main h3 {
-	color: #eeeeee;
-	text-align: center;
-	padding-bottom: 2rem;
+  color: #eeeeee;
+  text-align: center;
+  padding-bottom: 2rem;
 }
 
 main p {
-	padding-bottom: 1em;
-	text-indent: 4ch;
-	margin: auto;
-	width: 80%;
-	color: #eeeeee;
-	text-align: justify;
+  padding-bottom: 1em;
+  text-indent: 4ch;
+  margin: auto;
+  width: 80%;
+  color: #eeeeee;
+  text-align: justify;
 }
 
 .containery h1 {
-	text-shadow: 1px 3px rgba(1, 1, 3, 0.5);
-	margin: auto;
-	padding: 20px;
-	text-align: center;
+  text-shadow: 1px 3px rgba(1, 1, 3, 0.5);
+  margin: auto;
+  padding: 20px;
+  text-align: center;
 }
 
 .containery h5 {
-	margin: auto;
-	padding-bottom: 20px;
-	text-align: center;
+  margin: auto;
+  padding-bottom: 20px;
+  text-align: center;
 }
-

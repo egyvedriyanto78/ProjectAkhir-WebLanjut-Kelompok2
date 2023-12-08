@@ -53,4 +53,8 @@ class StokModel extends Model
     public function deleteStok($id){
         return $this->delete($id);
     }
+
+    public function getSumStok(){
+        return $this->select('SUM(stok) as total_stok')->get()->getRow()->total_stok;
+    }
 }

@@ -12,10 +12,10 @@ class DokterModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id','nama', 'kontak', 'email'];
+    protected $allowedFields    = ['id','nama', 'kontak', 'email','idi','wilayah','foto','spesialisasi'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -38,23 +38,23 @@ class DokterModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    
-
-    //public function getDokter($id= null){
-        // if($id!= null){
-        //     return $this->select('users.id as userid, nama')
-        //                 ->join('auth_groups_users','auth_groups_users.user_id = users.id')
-        //                 ->join('auth_groups','auth_groups.id =  auth_groups_users.group_id')
-        //                 ->where('name = "dokter"')->findAll();
-        //             }        
+    public function getDokter($id= null){
+        if($id!= null){
+            return $this->select('users.*')->find($id);
+        }        
         
-        // return $this->select('users.id as userid, nama')
-        // ->join('auth_groups_users','auth_groups_users.user_id = users.id')
-        // ->join('auth_groups','auth_groups.id =  auth_groups_users.group_id')
-        // ->where('name = "dokter"')->findAll();
-    //}    
+        return $this->select('users.*')->findAll();
+    }    
     public function updateProfile($id, $data){
         return $this->update($id,$data);
+    }
+
+    public function updateDokter($data, $id){
+        return $this->update($id,$data);
+    }
+
+    public function deleteDokter($id){
+        return $this->delete($id);
     }
     
 }

@@ -4,7 +4,7 @@
 <main id="main" class="main">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">Default Table</h5>
+            <h5 class="card-title">Rekam Medis</h5>
 
             <!-- Default Table -->
             <table class="table">
@@ -32,14 +32,16 @@
                         <td><?= $key['diagnosa']?></td>
                         <td><?= $key['resep_obat']?></td>
                         <td>
-                            <a href="<?= base_url('dokter/rkmedis/'.$key['idrecord'].'/edit') ?>" class="btn btn-primary">Edit</a>
-                            <form action="<?= base_url('dokter/rkmedis/'.$key['idrecord']) ?>" method="post" style="display: inline-block;">
+                            <a href="<?= base_url('dokter/rkmedis/'.$key['idrecord'].'/edit') ?>"
+                                class="btn btn-primary">Edit</a>
+                            <form action="<?= base_url('dokter/rkmedis/'.$key['idrecord']) ?>" method="post"
+                                style="display: inline-block;">
                                 <input type="hidden" name='_method' value="DELETE">
                                 <?= csrf_field() ?>
                                 <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>                    
+                            </form>
                         </td>
-                        
+
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
