@@ -6,7 +6,7 @@
     <a href="<?= base_url('adm/profil/' . $profil['id']) ?>"
         onclick="return confirm('Apakah Anda yakin ingin menghapus foto profil?');" style="margin:1px;margin-left:4rem"
         class="btn btn-danger">
-        Delete Photo
+        Hapus Photo
     </a>
     <form action="<?= base_url('adm/profil/' . $profil['id']) ?>" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_method" value="PUT">
@@ -22,7 +22,7 @@
             <label for="nama">Nama</label>
             <input type="text" class="form-control" id="username" value="<?= $profil['username'] ?>" name="username" uploaded>
         </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">Perbarui</button>
     </form>
 </div>
 
